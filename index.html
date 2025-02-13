@@ -4,29 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Simon Sats</title>
+    <title>Simon Says</title>
     <link rel="stylesheet" href="style.css">
 </head>
-    <body>
-        <header>
-            <h1>Simon dice!</h1>
-            <button id="instrucciones_boton">Instrucciones</button>
-            <button id = "jugar_boton">Jugar</button>
-            <button id = "reiniciar_boton">Restart</button>
-            <button id = "score_boton">Score</button>
+<body>
 
-        </header>
-        <main>
-            <div class = "game-block">
-                <button id = "blue"></button>
-                <button id = "yellow"></button>
-                <button id = "red"></button>
-                <button id = "green"></button>
-            </div>
-            <div id = "score-block">
-                <h1>Scores</h1>
-            </div>
-        </main>
-        <script src = "script.js"></script>
-    </body>
+    <header>
+        <h1>Simon Says</h1>
+        <div class="scoreboard">Puntuación: <span id="score">0</span></div>
+    </header>
+
+    <main>
+        <h2 class = "state"></h2>
+        <div id = "game-content">
+            <div class = "color" id = "red"></div>
+            <div class = "color" id = "yellow"></div>
+            <div class = "color" id = "blue"></div>
+            <div class = "color" id = "green"></div>
+        </div>                                                                                                                                                                                                                                                                                                                                                                                                                                         
+        <button class = "button" id = "start">Empezar</button>
+        <button class = "button"id = "end">Parar</button>
+    </main>
+    <footer>
+        <h1>Puntajes</h1>
+        <li></li>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
