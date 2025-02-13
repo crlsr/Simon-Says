@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Simon Sats</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>Simon Says</header>
-    <div id = "game-block">
-        <button id = "jugar_boton">Jugar</button>
-        <button id = "reiniciar_boton">Restart</button>
-        <button id = "score_boton">Score</button>
+    <body>
+        <header>
+            <h1>Simon dice!</h1>
+            <button id="instrucciones_boton">Instrucciones</button>
+            <button id = "jugar_boton">Jugar</button>
+            <button id = "reiniciar_boton">Restart</button>
+            <button id = "score_boton">Score</button>
 
-        <button id = "blue"></button>
-        <button id = "yellow"></button>
-        <button id = "red"></button>
-        <button id = "green"></button>
-    </div>
-    <div id = "score-block">
-        <h1>Scores</h1>
-    </div>
-</body>
+        </header>
+        <main>
+            <div class = "game-block">
+                <button id = "blue"></button>
+                <button id = "yellow"></button>
+                <button id = "red"></button>
+                <button id = "green"></button>
+            </div>
+            <div id = "score-block">
+                <h1>Scores</h1>
+            </div>
+        </main>
+        <script src = "script.js"></script>
+    </body>
 </html>
