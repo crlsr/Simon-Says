@@ -15,11 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const botonesDiv = document.querySelectorAll(".color");
     const scoreLabel = document.getElementById("puntaje")
     const clientLabel = document.getElementById("clientName");
+    const botonPuntajes = document.getElementById("scores")
 
     //Eventos
     botonEmpezar.addEventListener("click", startGame);
     botonCambiarNombre.addEventListener("click", changeClient);
     botonParar.addEventListener("click", stopGame)
+    botonPuntajes.addEventListener("click", () => {
+        window.location.href = "index-scores.html"
+    })
 
     /*
     Funciones del Juego:
