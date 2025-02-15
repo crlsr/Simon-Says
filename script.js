@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function playSequence() {
-        document.body.style.background = "gray";
+        document.body.style.background = "black";
         let delay = 500; //definimos delay entre instruccion e instruccion
         instrucciones.forEach((color, index) => { //Definimos un for each para recorrer las instrucciones y reflejar la secuencia
             if(estadoJuego == false){
