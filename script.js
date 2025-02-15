@@ -45,6 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
     -stopGame: cuando se presina el boton parar se termina el juego.
 
     -updateScore: actualiza la puntuacion graficamente (reflejandolo en el div).
+
+    - saveScore: Guarda los datos en el localStorage para posteriormente ser utilizados en el script2 con el fin de cargarlo en la tabla de puntuaciones
     */
 
     function startGame() { 
@@ -120,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
     Funciones de audio y extras:
     - activateButton: Activa la animacion del boton agregandole momentamente la clase "active"
     - playSound: Ejecuta un audio que dice el nombre del color a seleccionar
+    - changeColor: Cambia el color del fondo cada que se presione un boton durante la ejecucion del juego.
     */ 
 
     function activateButton(color) {
