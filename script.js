@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function playSequence() {
-        document.body.style.background = "black";
+        document.body.style.background = "gray";
         let delay = 500; //definimos delay entre instruccion e instruccion
         instrucciones.forEach((color, index) => { //Definimos un for each para recorrer las instrucciones y reflejar la secuencia
             if(estadoJuego == false){
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function checkSequence() {
         const currentIndex  = secuenciaCliente.length - 1;
         if (secuenciaCliente[currentIndex] !== instrucciones[currentIndex]){ //Verificamos si las ultimas instrucciones de cada una es la misma (Mejorar)
-            alert("Perdiste " + cliente + "! Juego terminado. Llegaste hasta " + puntaje + " puntos");     
+            alert("Perdiste " + cliente + "! Juego terminado. Llegaste hasta " + puntaje + " puntos");  
             startGame();
         } else if(secuenciaCliente.length === instrucciones.length){ // verificamso si se instrodujo la cantidad de instruccines
             puntaje++; //agrega 5 puntos si se gano un nivel
