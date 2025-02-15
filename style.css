@@ -15,6 +15,20 @@ header div{
     padding: 10px;
 }
 
+.a{
+    text-align: center;
+    display: inline-block;
+    margin: 2px;
+    padding: 20px;
+}
+
+.b{
+    text-align: center;
+    display: inline-block;
+    margin: 2px;
+    padding: 20px;
+}
+
 body{
     justify-content: center; /**/
     align-items: center;
@@ -54,18 +68,22 @@ main{
 
 #red{
     background-color: red;
+    border-top-left-radius: 200px;
 }
 
 #yellow{
     background-color: yellow;
+    border-top-right-radius: 200px;
 }
 
 #blue{
     background-color: blue;
+    border-bottom-left-radius: 200px;
 }
 
 #green{
     background-color: green;
+    border-bottom-right-radius: 200px;
 }
 
 footer{

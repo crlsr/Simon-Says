@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     //Datos del programa (Variables)
+    const ColorToHex = {"red": ["#ffb3ba", "#ffffff"], "yellow": ["#ecffa4", "#d3d3d3"], "blue": ["#bae1ff", "#ffffff"], "green": ["#baffc9", "#d3d3d3"]}
     const botones = ["red", "yellow", "blue", "green"]; //Lista de botones
     let instrucciones = []; //Pila de instrucciones del programa
     let secuenciaCliente = []; //Pila de instrucciones cliente
@@ -13,9 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const botonParar = document.getElementById("end");
     const botonCambiarNombre = document.getElementById("change-name");
     const botonesDiv = document.querySelectorAll(".color");
-    const scoreLabel = document.getElementById("puntaje")
+    const scoreLabel = document.getElementById("puntaje");
     const clientLabel = document.getElementById("clientName");
-    const botonPuntajes = document.getElementById("scores")
+    const botonPuntajes = document.getElementById("scores");
 
     //Eventos
     botonEmpezar.addEventListener("click", startGame);
@@ -69,6 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function playSequence() {
         let delay = 500; //definimos delay entre instruccion e instruccion
         instrucciones.forEach((color, index) => { //Definimos un for each para recorrer las instrucciones y reflejar la secuencia
+            if(estadoJuego == false){
+                return
+            }
             setTimeout(() => { //El time out crea demora entre vuelta y vuelta del for each
                 playSound(color);
                 activateButton(color);
@@ -82,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Perdiste " + cliente + "! Juego terminado. Llegaste hasta " + puntaje + " puntos");       
             startGame();
         } else if(secuenciaCliente.length === instrucciones.length){ // verificamso si se instrodujo la cantidad de instruccines
-            puntaje = puntaje + 5; //agrega 5 puntos si se gano un nivel
+            puntaje = puntaje + 1; //agrega 5 puntos si se gano un nivel
             updateScore();
             setTimeout(nextLevel, 1000);
         }
@@ -118,6 +122,22 @@ document.addEventListener("DOMContentLoaded", () => {
         audio.play();
     }
 
+    function ChangeColor(color){
+        var colors = ColorToHex[color];
+        document.body.style.background = colors[0];
+        var h1Elements = document.getElementsByTagName("h1");
+        var t1 = document.getElementById("r");
+        var t2 = document.getElementById("j");
+        
+        for(var i = 0; i < h1Elements.length; i++) {
+            h1Elements[i].style.color = colors[1];
+         }
+        scoreLabel.style.color = colors[1];
+        clientLabel.style.color = colors[1];
+        t1.style.color = colors[1];
+        t2.style.color = colors[1];
+    }
+
     //funcion anonima que busca el color presionado y le agrega a la secuencia d ebotones del cliente
     botonesDiv.forEach(div => {
         div.addEventListener("click", (event) => {
@@ -125,6 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const color = event.target.id; //buscamos el boton presionado
             secuenciaCliente.push(color); //agregamos color presionado
             playSound(color);
+            ChangeColor(color)
             activateButton(color);
             checkSequence();
         });
