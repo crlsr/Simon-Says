@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const scoreLabel = document.getElementById("puntaje");
     const clientLabel = document.getElementById("clientName");
     const botonPuntajes = document.getElementById("scores");
+    const h1Elements = document.getElementsByTagName("h1");
+    const t1 = document.getElementById("r");
+    const t2 = document.getElementById("j"); 
 
     //Eventos
     botonEmpezar.addEventListener("click", startGame);
@@ -68,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function playSequence() {
+        document.body.style.background = "black";
         let delay = 500; //definimos delay entre instruccion e instruccion
         instrucciones.forEach((color, index) => { //Definimos un for each para recorrer las instrucciones y reflejar la secuencia
             if(estadoJuego == false){
@@ -83,10 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function checkSequence() {
         const currentIndex  = secuenciaCliente.length - 1;
         if (secuenciaCliente[currentIndex] !== instrucciones[currentIndex]){ //Verificamos si las ultimas instrucciones de cada una es la misma (Mejorar)
-            alert("Perdiste " + cliente + "! Juego terminado. Llegaste hasta " + puntaje + " puntos");       
+            alert("Perdiste " + cliente + "! Juego terminado. Llegaste hasta " + puntaje + " puntos");     
             startGame();
         } else if(secuenciaCliente.length === instrucciones.length){ // verificamso si se instrodujo la cantidad de instruccines
-            puntaje = puntaje + 1; //agrega 5 puntos si se gano un nivel
+            puntaje++; //agrega 5 puntos si se gano un nivel
             updateScore();
             setTimeout(nextLevel, 1000);
         }
@@ -123,15 +127,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function ChangeColor(color){
-        var colors = ColorToHex[color];
+        let colors = ColorToHex[color];
         document.body.style.background = colors[0];
-        var h1Elements = document.getElementsByTagName("h1");
-        var t1 = document.getElementById("r");
-        var t2 = document.getElementById("j");
-        
-        for(var i = 0; i < h1Elements.length; i++) {
+        for(let i = 0; i < h1Elements.length; i++) {
             h1Elements[i].style.color = colors[1];
-         }
+        }
         scoreLabel.style.color = colors[1];
         clientLabel.style.color = colors[1];
         t1.style.color = colors[1];
@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const color = event.target.id; //buscamos el boton presionado
             secuenciaCliente.push(color); //agregamos color presionado
             playSound(color);
-            ChangeColor(color)
+            ChangeColor(color);
             activateButton(color);
             checkSequence();
         });

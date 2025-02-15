@@ -1,4 +1,20 @@
-header h1{
+/* Estilos generales */
+body {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+header h1 {
     color: whitesmoke;
     font-size: 3em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -7,7 +23,10 @@ header h1{
     padding: 10px;
 }
 
-header div{
+header div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: whitesmoke;
     font-size: 1.5em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -15,33 +34,20 @@ header div{
     padding: 10px;
 }
 
-.a{
-    text-align: center;
-    display: inline-block;
-    margin: 2px;
-    padding: 20px;
-}
-
-.b{
-    text-align: center;
-    display: inline-block;
-    margin: 2px;
-    padding: 20px;
-}
-
-body{
-    justify-content: center; /**/
+.a, .b {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    height: 100vh;/**/
-    margin: 0;
-    background-color: black;
+    text-align: left;
+    margin: 2px;
+    padding: 10px;
 }
 
-main{
+main {
     text-align: center;
 }
 
-#game-content{
+#game-content {
     justify-content: center;
     display: grid;
     grid-template-columns: repeat(2, 210px);
@@ -49,14 +55,14 @@ main{
     margin: 30px auto; 
 }
 
-.color{
+.color {
     width: 200px;
     height: 200px;
     cursor: pointer;
     border-radius: 10px;
 }
 
-.button{
+.button {
     background-color: rgb(42, 40, 40);
     color: whitesmoke;
     padding: 5px 10px;
@@ -66,31 +72,31 @@ main{
     margin: 2.5px;
 }
 
-#red{
+#red {
     background-color: red;
     border-top-left-radius: 200px;
 }
 
-#yellow{
+#yellow {
     background-color: yellow;
     border-top-right-radius: 200px;
 }
 
-#blue{
+#blue {
     background-color: blue;
     border-bottom-left-radius: 200px;
 }
 
-#green{
+#green {
     background-color: green;
     border-bottom-right-radius: 200px;
 }
 
-footer{
+footer {
     text-align: center;
 }
 
-footer h1{
+footer h1 {
     color: whitesmoke;
     font-size: 2em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -98,16 +104,84 @@ footer h1{
     margin: 10px;
 }
 
-footer li{
+footer li {
     color: whitesmoke;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1em;
     text-align: left;
 }
 
-.active{
+.active {
     opacity: 0.7;
 }
 
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em;
+        padding: 5px;
+    }
 
+    header div {
+        font-size: 1.2em;
+        padding: 5px;
+    }
 
+    #game-content {
+        grid-template-columns: repeat(2, 100px);
+        grid-gap: 10px;
+    }
+
+    .color {
+        width: 100px;
+        height: 100px;
+    }
+
+    .button {
+        font-size: 0.8em;
+        padding: 3px 5px;
+    }
+
+    footer h1 {
+        font-size: 1.5em;
+        padding: 10px;
+    }
+
+    footer li {
+        font-size: 0.8em;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header div {
+        font-size: 1.3em;
+    }
+
+    #game-content {
+        grid-template-columns: repeat(2, 150px);
+        grid-gap: 15px;
+    }
+
+    .color {
+        width: 150px;
+        height: 150px;
+    }
+
+    .button {
+        font-size: 0.9em;
+        padding: 4px 8px;
+    }
+
+    footer h1 {
+        font-size: 1.8em;
+        padding: 15px;
+    }
+
+    footer li {
+        font-size: 0.9em;
+    }
+}
