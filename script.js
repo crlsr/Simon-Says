@@ -89,8 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentIndex  = secuenciaCliente.length - 1;
         if (secuenciaCliente[currentIndex] !== instrucciones[currentIndex]){ //Verificamos si las ultimas instrucciones de cada una es la misma (Mejorar)
             alert("Perdiste " + cliente + "! Juego terminado. Llegaste hasta " + puntaje + " puntos");
-            localStorage.setItem(counter, [cliente, puntaje]);
-            counter = counter + 1;  
+            saveScore(cliente, puntaje);
             startGame();
         } else if(secuenciaCliente.length === instrucciones.length){ // verificamso si se instrodujo la cantidad de instruccines
             puntaje++; //agrega 5 puntos si se gano un nivel
@@ -102,14 +101,19 @@ document.addEventListener("DOMContentLoaded", () => {
     function stopGame(){
         estadoJuego = false;
         alert("Juego terminado, gracias por jugar " + cliente + " tu puntuacion ha sido de " + puntaje + " puntos.");
-        localStorage.setItem(counter, [cliente, puntaje]);
-        counter = counter + 1;
+        saveScore(cliente, puntaje);
         puntaje = 0;
         updateScore();
     }
 
     function updateScore(){
         scoreLabel.textContent = puntaje
+    }
+
+    function saveScore(name, round){
+        const scores = JSON.parse(localStorage.getItem("scores")) || {};
+        scores[name] = { round: round };
+        localStorage.setItem("scores", JSON.stringify(scores));
     }
 
         /*
